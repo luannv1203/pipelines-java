@@ -2,7 +2,7 @@ trigger:
   - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Default
 
 variables:
   JAVA_HOME: '/usr/lib/jvm/java-17-openjdk-amd64'
