@@ -1,0 +1,21 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  JAVA_HOME: '/usr/lib/jvm/java-17-openjdk-amd64'
+
+steps:
+  - task: UseJavaVersion@1
+    inputs:
+      versionSpec: '17'
+
+  - script: mvn clean install -DskipTests
+    displayName: 'Build Java App'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'target/*.jar'
+      artifactName: 'java-app'
